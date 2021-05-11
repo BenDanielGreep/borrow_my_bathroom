@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Wiping db"
+Bathroom.destroy_all
+puts "Seeding db"
+Bathroom.create(title:"Luxury Bathroom", address:"123 Poo lane, London", description:"This is the best bathroom in the world. Come and relax on the finest loo in London", price: 69, user_id: 1)
+Bathroom.create(title:"Cheap Bathroom", address:"1 Turds Corner", description:"This bathroom is a hole in the ground", price: 1, user_id: 1)
+
