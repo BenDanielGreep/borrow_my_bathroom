@@ -1,3 +1,14 @@
 <h1>This is the edit bathroom page</h1>
 
 <h2>Edit <%= @bathroom.title %> here</h2>
+
+<div class="container">
+  <%= simple_form_for(@bathroom) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
+
+</div>

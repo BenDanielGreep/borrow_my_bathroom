@@ -1,2 +1,12 @@
 <h1>This is the new  bathroom page</h1>
 <h2>Create a bathroom and have it booked by users</h2>
+<div class="container">
+  <%= simple_form_for(@bathroom) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+  <%= f.submit %>
+  <% end %>
+
+</div>
