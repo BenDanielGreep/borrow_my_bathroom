@@ -1,0 +1,10 @@
+<h1>This is the Bathrooms index page</h1>
+<ul>
+  <% @bathrooms.each do |bathroom| %>
+    <li><%= bathroom.title %></li>
+    <li><%= bathroom.address %></li>
+    <li><%= bathroom.description %></li>
+    <li><%= bathroom.price %></li>
+    <a href="btn btn-primary">Book this bathroom</a>
+  <% end %>
+</ul>
