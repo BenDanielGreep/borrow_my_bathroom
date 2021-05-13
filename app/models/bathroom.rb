@@ -4,4 +4,5 @@ class Bathroom < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :title, :address, :description, :price, presence: true
   validates :title, :address, uniqueness: true
+  has_many_attached :photos
 end
