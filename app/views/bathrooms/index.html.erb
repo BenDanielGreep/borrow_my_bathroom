@@ -1,4 +1,4 @@
-<div class="">
+<div class="" style="margin-top: 100px;">
   <!-- <h1>This is the Bathrooms index page</h1> -->
   <div class="bathroom-cards d-flex flex-column justify-content-around align-items-center">
     <% @bathrooms.each do |bathroom| %>
@@ -8,12 +8,12 @@
           </div>
           <div class="card-body">
             <h4 class="card-title"><%= bathroom.title %></h4>
-            <p class="card-text"><%= bathroom.address %></p>
+            <p class="card-text text-secondary"><%= bathroom.address %></p>
           </div>
            <div class="w-100"></div>
             <div class="card-footer w-100 text-muted flex-row">
               <p class="float-left">£ <%= bathroom.price %> per hour</p>
-              <p class="float-right"><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary" %></p>
+              <p class="float-right"><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary", style: "background-color:#FF7E67; border:0;"%></p>
             </div>
         </div>
     <% end %>
