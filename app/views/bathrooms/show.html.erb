@@ -1,10 +1,20 @@
-<h1>This is the Bathroom Show Page</h1>
-<ul>
-
-    <li><%= @bathroom.title %></li>
-    <li><%= @bathroom.address %></li>
-    <li><%= @bathroom.description %></li>
-    <li><%= @bathroom.price %></li>
-    <a href="btn btn-primary">Book this bathroom</a>
-
-</ul>
+<div class="bathroom-show-container">
+  <h3 style="padding-bottom: 12px"><strong><%= @bathroom.title %></strong></h3>
+  <div class="bathroom-show">
+        <div>
+          <div class="image">
+            <%= cl_image_tag @bathroom.photos.first.key, height: 400, width: 700, crop: :fill %>
+          </div>
+          <div class="card-body">
+            <h4>Visit <strong><%= @bathroom.user.name %>'s</strong> bathroom</h4>
+            <hr>
+            <p style="font-size: 14px; color: grey"><%= @bathroom.address %></p>
+            <p style="font-style: italic; text-align: justify;">"<%= @bathroom.description %>"</p>
+          </div>
+          <div class="price_book">
+            <p> <strong>£ <%= @bathroom.price %></p> </strong>
+          </div>
+          <%= link_to "poo here", new_bathroom_booking_path(@bathroom.id), class: "book_now" %>
+        </div>
+  </div>
+</div>

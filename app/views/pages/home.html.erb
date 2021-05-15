@@ -1,24 +1,6 @@
-<div class="navbar-lewagon fixed-top" style="display: flex">
-  <div id="logo" style="display:flex">
-  <i class="fas fa-toilet"></i>
-  <h1>AirPnP</h1>
- </div>
- <div>
- <form class="form-inline">
-    <input class="form-control shadow-none" type="search" placeholder="Search">
-    <button class="btn btn-outline-light" type="submit"><i class="fas fa-toilet-paper"></i></button>
-  </form>
- </div>
-
- <div id="sign-up" style="display:flex">
-    <p>Sign up</p>
-    <p>Login</p>
-  </div>
-</div>
-
 <div class="home-banner">
   <div id="slogan">
     <h1>Do a poo in someone else's loo!</h1>
-    <button>Get Started</button>
+    <%= link_to 'Get Started', bathrooms_path, class: "get_started" %>
   </div>
 </div>
