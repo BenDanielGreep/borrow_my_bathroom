@@ -5,6 +5,6 @@
     <li><%= bathroom.address %></li>
     <li><%= bathroom.description %></li>
     <li><%= bathroom.price %></li>
-    <a href="btn btn-primary">Book this bathroom</a>
+    <%= link_to "poo here", new_bathroom_booking_path(bathroom.id) %>
   <% end %>
 </ul>
