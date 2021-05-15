@@ -23,6 +23,11 @@
         <button class="btn btn-outline-light" type="submit"> <i class="fas fa-toilet-paper"></i></button>
       </form>
      </div>
+      <div id="sign-up" style="display:flex">
+        <%= link_to 'Sign up', new_user_registration_path, class: "login" %>
+        <%= link_to 'Login', new_user_session_path, class: "login" %>
+      </div>
+    </div>
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <%= yield %>
