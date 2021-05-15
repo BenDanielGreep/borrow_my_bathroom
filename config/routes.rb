@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bathrooms do
     resources :bookings, only: [ :new, :create ]
   end
-  
-  resources :bookings, only: [ :show, :edit, :update, :destroy ] 
+
+  resources :bookings, only: [ :index, :edit, :update, :destroy ]
 
 end
