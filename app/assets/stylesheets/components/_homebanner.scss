@@ -1,0 +1,37 @@
+.home-banner {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6) ), url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+   background-position: top;
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#slogan{
+  width: 700px;
+  padding-left: 250px;
+  h1{
+    text-align: left;
+    font-weight: bolder;
+  }
+  button {
+    position: absolute;
+    left: 250px;
+    margin-top: 24px;
+    border: 0px;
+    padding: 12px 24px 12px 24px;
+    border-radius: 24px;
+    font-weight:bolder;
+    color: $airpnp-orange;
+    justify-self: left;
+    &:hover{
+      margin-top: 25px;
+      left: 251px;
+      opacity: 0.9;
+      transition: 0.2s opacity margin-top left ease;
+    }
+  }
+}
+
+

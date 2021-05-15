@@ -1,12 +1,50 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $airpnp-blue;
+  // opacity: 0.8;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 56px;
+  padding-right:32px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+
+.navbar-lewagon-transparent {
+  transition: 0.5s background-color ease;
+  background: $airpnp-blue;
+  opacity: 0.8;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+#logo {
+  align-items: center;
+
+  i {
+  font-size: 40px;
+  color: white;
+  padding-right: 24px;
+  }
+
+  h1 {
+  font-family: $logo-font;
+  font-size: 40px;
+  color: white;
+  margin: auto;
+  }
+}
+
+#sign-up {
+  align-items: center;
+  p {
+  margin: auto;
+  color: white;
+  padding-right: 24px;
+  }
 }
