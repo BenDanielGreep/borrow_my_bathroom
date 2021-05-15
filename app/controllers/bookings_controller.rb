@@ -1,24 +1,21 @@
 class BookingsController < ApplicationController
 
-  def index
-    @booking = Booking.all
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   def new
     @bathroom = Bathroom.find(params[:bathroom_id])
-    @Booking = Booking.new
+    @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(_params)
+    @booking = Booking.new(booking_params)
     @bathroom = Bathroom.find(params[:bathroom_id])
-    @booking.bathroom = @booking
-    @booking.save
-   
+    @booking.bathroom = @bathroom
+    @booking.user = current_user
+    if @booking.save
+      redirect_to bathrooms_path
+    else
+    render :new
+    end
+
   end
 
   def edit
@@ -34,5 +31,9 @@ class BookingsController < ApplicationController
   end
 
   private
-  # params
+  
+  def booking_params
+  params.require(:booking).permit(:booking_price, :start_time, :end_time)
+  end  
+
 end
