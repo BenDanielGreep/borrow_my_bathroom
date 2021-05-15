@@ -1,0 +1,42 @@
+
+  h2 {
+  font-family: $logo-font;
+  font-size: 30px;
+  color: white;
+  margin: auto;
+  }
+
+.booking_form {
+  input, select {
+    border-radius: 20px
+  }
+  padding: 0px;
+  background-color: white;
+  box-shadow: 1px 1px 10px #888888;
+  label {
+  font-size: 16px;
+  }
+}
+
+.title {
+  background-color: $airpnp-blue;
+  padding: 8px;
+}
+
+.button-primary {
+  margin-top: 24px;
+  border: 0px;
+  padding: 12px 24px 12px 24px;
+  border-radius: 24px;
+  font-weight:bolder;
+  color: white;
+  justify-self: left;
+  background-color: $airpnp-blue;
+  &:hover{
+    background-color: $airpnp-orange;
+    margin-top: 25px;
+    left: 251px;
+    opacity: 0.9;
+    transition: 0.2s opacity margin-top left ease;
+  }
+}
