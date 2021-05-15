@@ -12,8 +12,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="navbar-lewagon fixed-top" style="display: flex">
+      <div id="logo" style="display:flex">
+      <i class="fas fa-toilet"></i>
+      <%= link_to 'AirPnp', root_path, class: "logo_text" %>
+     </div>
+     <div>
+     <form class="form-inline">
+        <input class="form-control shadow-none" type="search" placeholder="Search">
+        <button class="btn btn-outline-light" type="submit"> <i class="fas fa-toilet-paper"></i></button>
+      </form>
+     </div>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
     <%= yield %>
   </body>
 </html>
