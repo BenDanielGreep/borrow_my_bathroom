@@ -1,10 +1,10 @@
 
 <div class="container col-lg-8 h1 i booking_form " style="margin-top: 100px">
   <h2 class="title">Complete your booking details below:</h2>
-  <div class= "p-4"><%= simple_form_for [@bathroom, @booking] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :booking_price %>
+  <div class= "p-4"><%= simple_form_for [@bathroom, @booking], html:{data: {price:@bathroom.price}} do |f| %>
+  <%= f.input :start_time, html5: true %>
+  <%= f.input :end_time, html5: true %>
+  <%= f.input :booking_price, label: "Booking Price £", placeholder: "£", readonly: true %>
   <%= f.button :submit, class: "button-primary" %>
   <% end %>
   </div>
