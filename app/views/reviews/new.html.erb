@@ -1,0 +1,9 @@
+<div class="container col-lg-8 h1 i booking_form " style="margin-top: 120px">
+  <h2 class="title">Leave a review below:</h2>
+  <div class= "p-4"><%= simple_form_for [@bathroom, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating, collection: 1..5 %>
+  <%= f.button :submit, class: "button-primary" %>
+  <% end %>
+  </div>
+</div>
