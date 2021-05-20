@@ -1,6 +1,7 @@
  <div class="bathroom-show-container">
   <div>
-    <h1 style="margin-top:50px ">Bookings made on my toilets by other people</h1>
+    <h3><%= "Bookings made on my toilets by other people" unless current_user.bathrooms.empty? %></h3>
+    <h1 style="margin-top:50px "></h1>
     <% current_user.bathrooms.each do |bathroom| %>
       <% bathroom.bookings.each do |booking| %>
         <h4><%= booking.bathroom.title %></h4>
@@ -12,15 +13,17 @@
       <% end %>
     <% end %>
   </div>
+  <hr>
   <div>
     <h1 style="margin-top:100px ">My Bookings</h1>
     <% @bookings.each do |booking| %>
       <h4><%= booking.bathroom.title %></h4>
       <p><%= booking.bathroom.user.name %></p>
       <p>£<%= booking.booking_price %></p>
-      <p><%= booking.confirmed ? "Confirmed, you egg" : "Pending" %></p>
+      <p><%= booking.confirmed ? "Confirmed" : "Pending" %></p>
       <%= link_to "Update", bookings_path(@booking) %>
       <%= link_to "Delete", bookings_path(@booking) %>
+    <hr>
     <% end %>
   </div>
   <hr>
