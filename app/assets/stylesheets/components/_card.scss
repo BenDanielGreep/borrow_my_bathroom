@@ -1,0 +1,56 @@
+// use classes
+
+#address {
+  font-size: 16px;
+}
+.card-container {
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.right-card {
+  margin: 12px;
+  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 12px;
+}
+
+.price-text {
+position: absolute;
+bottom: 5px;
+color: #ffffff;
+left: 15px;
+margin-right: 12px;
+}
+
+
+.price-container {
+  background-color: $airpnp-blue;
+  width: 300px;
+  height: 45px;
+}
+
+.button-container {
+position: absolute;
+bottom: 5px;
+right: 5px;
+
+padding-bottom: 4px;
+}
+
+.card-title {
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.content-text {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.btn-orange {
+  font-size: 14px;
+  background-color: $airpnp-orange;
+  border: 0;
+  margin-right:6px;
+
+}
