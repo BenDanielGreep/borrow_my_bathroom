@@ -1,6 +1,16 @@
 class BathroomsController < ApplicationController
   def index
-    @bathrooms = Bathroom.all
+    if params[:query].present?
+      sql_query = " \
+      bathrooms.title ILIKE :query \
+      OR users.name ILIKE :query \
+      "
+      @bathrooms = Bathroom.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      # @bathrooms = Bathroom.search_by_title(params[:query]) or 
+
+    else
+      @bathrooms = Bathroom.all
+    end
   end
 
   def show
