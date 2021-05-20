@@ -15,13 +15,19 @@
       <div id="logo" style="display:flex">
       <i class="fas fa-toilet"></i>
       <%= link_to 'AirPnp', root_path, class: "logo_text" %>
-     </div>
-     <div>
-     <form class="form-inline">
-        <input class="form-control shadow-none" type="search" placeholder="Search">
-        <button class="btn btn-outline-light" type="submit"> <i class="fas fa-toilet-paper"></i></button>
-      </form>
-     </div>
+      </div>
+      <div class="form-inline">
+        <%= form_tag bathrooms_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a bathroom" %>
+            <%= button_tag type: 'submit' , class: "btn btn-outline-light" do %>
+              <i class="fas fa-toilet-paper"></i>
+            <% end %>
+        <% end %>
+      </div>
+    
       <div id="sign-up" style="display:flex">
         <% if current_user %>
           <p class="login">

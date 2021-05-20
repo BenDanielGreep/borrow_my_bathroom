@@ -5,4 +5,15 @@ class Bathroom < ApplicationRecord
   validates :title, :address, :description, :price, presence: true
   validates :title, :address, uniqueness: true
   has_many_attached :photos
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+  against: [ :title ],
+  associated_against: {
+      user: [ :name ]
+    },
+  using: {
+    tsearch: { prefix: true } 
+  }
 end
+
