@@ -2,7 +2,7 @@
   <!-- <h1>This is the Bathrooms index page</h1> -->
   <div class="bathroom-cards d-flex flex-column justify-content-around align-items-center">
     <% @bathrooms.each do |bathroom| %>
-        <div class="card card-container d-flex flex-row m-3 rounded-lg border" style="width: 60%;">
+        <div class="card card-container d-flex flex-row m-3 border" style="width: 50%;">
           <div class="left-card">
           <div class="img-container">
             <%= cl_image_tag bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
@@ -18,7 +18,7 @@
               </div>
               <div class="content-text">
                 <p class="card-text text-secondary" id="address"><%= bathroom.address %></p>
-                <p class="card-text text-secondary"><%= bathroom.description %></p>
+                <p class="card-text text-secondary">"<%= bathroom.description %>"</p>
               </div>
             </div>
           </div>
@@ -26,8 +26,6 @@
 
               <div class="button-container d-flex">
                 <div class=""><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
-                <div class=""><%= link_to "Leave Review", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
-                <div class=""><%= link_to "Everything is fine", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
               </div>
             </div>
         </div>
