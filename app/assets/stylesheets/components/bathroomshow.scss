@@ -1,14 +1,23 @@
 .bathroom-show-container {
-  padding: 48px;
+  padding: 24px 48px;
   width: 800px;
   .back {
-    text-decoration: none;
-    margin: auto;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 24px;
+    margin-right:6px;
+    margin-left: 6px;
+    border: 1px solid $airpnp-blue;
     color: $airpnp-blue;
+    background-color: #ffffff;
     &:hover{
-    color: $airpnp-orange;
-    transition: 0.2s color ease;
-    }
+      color: white;
+      background-color: $airpnp-blue;
+      opacity: 0.9;
+      transition: 0.2s background-color ease;
+      border: 1px solid $airpnp-blue;
+  }
   }
   .price_book {
     padding: 24px;
