@@ -13,11 +13,20 @@ Review.delete_all
 
 puts"creating new users"
 
-harper_user = User.create!(name: 'Harper', email: "harper@example.com", password: "123456")
+harper_user = User.new(name: 'Harper', email: "harper@example.com", password: "123456")
+harper_image = URI.open('https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
+harper_user.photo.attach(io: harper_image, filename: 'nes.png', content_type: 'image/png')
+harper_user.save!
+
 madison_user = User.create!(name: 'Madison', email: "madison@example.com", password: "123456")
 shaun_user = User.create!(name: "Shaun", email: "shaun@example.com", password: "123456")
 brian_user = User.create!(name: 'Brian', email: "brian@example.com", password: "123456")
 kate_user = User.create!(name: 'Kate', email: "kate@example.com", password: "123456")
+
+ben_user = User.new(name: 'Ben', email: "ben@example.com", password: "123456")
+ben_image = URI.open('https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80')
+ben_user.photo.attach(io: ben_image, filename: 'nes.png', content_type: 'image/png')
+ben_user.save!
 
 puts User.all
 
