@@ -1,0 +1,79 @@
+// use classes
+
+.card-container {
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  border-radius: 8px 8px 8px 8px;
+}
+
+.img-container img {
+  border-radius: 8px 0 0 0;
+}
+
+.right-card {
+  margin: 12px;
+  padding-left: 12px;
+  padding-top: 12px;
+  padding-right: 12px;
+}
+
+.price-text {
+  font-size: 16px;
+  position: absolute;
+  bottom: 8px;
+  color: #ffffff;
+  left: 15px;
+  margin-right: 12px;
+}
+
+.per-hour {
+  font-size: 12px;
+}
+
+
+.price-container {
+  border-radius: 0 0 0 8px;
+  background-color: $airpnp-blue;
+  width: 300px;
+  height: 45px;
+}
+
+.button-container {
+position: absolute;
+bottom: 8px;
+right: 16px;
+padding-bottom: 4px;
+}
+
+.card-title {
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.content-text {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+#address {
+font-size: 12px;
+font-weight: 600;
+}
+
+// change me
+.btn-orange {
+  padding: 6px 8px;
+  border: 1px solid $airpnp-orange;
+  font-size: 12px;
+  color: $airpnp-orange;
+  background-color: #ffffff;
+  border-radius: 24px;
+  margin-right:6px;
+  margin-left: 6px;
+  &:hover{
+    color: white;
+    background-color: $airpnp-orange;
+    opacity: 0.9;
+    transition: 0.2s background-color ease;
+    border: 1px solid #ffffff;
+  }
+}

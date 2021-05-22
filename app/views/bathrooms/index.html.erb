@@ -2,18 +2,31 @@
   <!-- <h1>This is the Bathrooms index page</h1> -->
   <div class="bathroom-cards d-flex flex-column justify-content-around align-items-center">
     <% @bathrooms.each do |bathroom| %>
-        <div class="card flex-row flex-wrap m-3" style="width: 60%;">
-          <div class="card-header border-0">
+        <div class="card card-container d-flex flex-row m-3 border" style="width: 50%;">
+          <div class="left-card">
+          <div class="img-container">
             <%= cl_image_tag bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
           </div>
-          <div class="card-body">
-            <h4 class="card-title"><%= bathroom.title %></h4>
-            <p class="card-text text-secondary"><%= bathroom.address %></p>
+            <div class="price-container">
+              <div class="price-text"><b>£ <%= bathroom.price%></b><em class="per-hour"> per hour</em></div>
+            </div>
           </div>
-           <div class="w-100"></div>
-            <div class="card-footer w-100 text-muted flex-row">
-              <p class="float-left">£ <%= bathroom.price %> per hour</p>
-              <p class="float-right"><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary", style: "background-color:#FF7E67; border:0;"%></p>
+          <div class="right-card">
+            <div class="text-container">
+              <div class="title-text">
+                <h4 class="card-title"><%= bathroom.title %></h4>
+              </div>
+              <div class="content-text">
+                <p class="card-text text-secondary" id="address"><%= bathroom.address %></p>
+                <p class="card-text text-secondary">"<%= bathroom.description %>"</p>
+              </div>
+            </div>
+          </div>
+            <div class="d-flex text-muted flex-row card-bottom-footer">
+
+              <div class="button-container d-flex">
+                <div class=""><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
+              </div>
             </div>
         </div>
     <% end %>
