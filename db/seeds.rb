@@ -76,21 +76,21 @@ bath03.save!
   bath04.photos.attach(io: file04, filename: 'nes.png', content_type: 'image/png')
 bath04.save!
 
-  bath05 = Bathroom.new(
-    title: "The world's most expensive bathroom",
-    address: "18 Montagu Square, London W1H 2LE",
-    description:"Nestled within a Grade II-listed chalet on the banks of the Thames, this bathroom is a masterclass in opulent excess. Ostentatious bathing space contains a pair of copper bathtubs, bespoke Japanese toilets and gilded Italian wash basins",
-    price: 300,
-    user_id: 3,
-    )
-  file05 = URI.open('https://images.unsplash.com/photo-1572742482459-e04d6cfdd6f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
-  bath05.photos.attach(io: file05, filename: 'nes.png', content_type: 'image/png')
-bath05.save!
+#   bath05 = Bathroom.new(
+#     title: "The world's most expensive bathroom",
+#     address: "18 Montagu Square, London W1H 2LE",
+#     description:"Nestled within a Grade II-listed chalet on the banks of the Thames, this bathroom is a masterclass in opulent excess. Ostentatious bathing space contains a pair of copper bathtubs, bespoke Japanese toilets and gilded Italian wash basins",
+#     price: 300,
+#     user_id: 3,
+#     )
+#   file05 = URI.open('https://images.unsplash.com/photo-1572742482459-e04d6cfdd6f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
+#   bath05.photos.attach(io: file05, filename: 'nes.png', content_type: 'image/png')
+# bath05.save!
 
 
   bath06 = Bathroom.new(
     title: "Quick trip to the loo?",
-    address: "5 St George St, London W1S 2FE",
+    address: "Buckingham Palace, London SW1A 1AA",
     description:"Can't wait? Need a quick trip to the loo? This might be the bathroom for you! Compact design but always sparkling clean.",
     price: 10,
     user_id: 4,
