@@ -11,7 +11,7 @@
               <div class="price-text"><b>£ <%= bathroom.price%></b><em class="per-hour"> per hour</em></div>
             </div>
           </div>
-          <div class="right-card">
+          <div class="right-card d-flex flex-column">
             <div class="text-container">
               <div class="title-text">
                 <h4 class="card-title"><%= bathroom.title %></h4>
@@ -21,13 +21,28 @@
                 <p class="card-text text-secondary">"<%= bathroom.description %>"</p>
               </div>
             </div>
-          </div>
-            <div class="d-flex text-muted flex-row card-bottom-footer">
-
+            <div class="d-flex text-muted">
+              <div id="rating">
+                <% total = 0.0 %>
+                <% average = 0.0 %>
+                <% bathroom.reviews.each do |review|%>
+                  <% total += review.rating %>
+                <% end %>
+                <% average = total / bathroom.reviews.count %>
+                <%  if bathroom.reviews.count != 0 %>
+                  <i class="fas fa-star" style="color: #FF7E67; padding-bottom: 12px;"></i>
+                  <span style="font-weight: bold; font-size: 14px;"><%= average.round(1)  %></span>
+                <% else %>
+                  <i class="fas fa-star" style="color: grey; padding-bottom: 12px;"></i>
+                  <span style="font-weight: bold; font-size: 14px;">0</span>
+                <% end %>
+                <span style="color: grey; font-size: 14px;">(<%= bathroom.reviews.count %> reviews)</span>
+              </div>
               <div class="button-container d-flex">
                 <div class=""><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
               </div>
             </div>
+          </div>
         </div>
     <% end %>
   </div>
