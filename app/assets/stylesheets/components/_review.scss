@@ -1,0 +1,33 @@
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.review-card {
+  margin-top:24px;
+  margin-bottom:48px;
+  margin-right: 32px;
+  width: 350px;
+  height: 250px;
+  background-color:white;
+  border-radius: 12px;
+  box-shadow: 1px 1px 10px #888888;
+  padding:24px;
+  i {
+    font-size: 14px;
+    color: $airpnp-orange;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bolder;
+  }
+  p {
+    font-size: 12px;
+    font-style: italic;
+    color: grey;
+  }
+}
