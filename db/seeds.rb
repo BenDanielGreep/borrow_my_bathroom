@@ -91,7 +91,7 @@ bath04.save!
   bath06 = Bathroom.new(
     title: "Quick trip to the loo?",
     address: "Buckingham Palace, London SW1A 1AA",
-    description:"Can't wait? Need a quick trip to the loo? This might be the bathroom for you! Compact design but always sparkling clean.",
+    description:"Can't wait? Need a quick trip to the loo? Ask the Queen! Compact design but always sparkling clean.",
     price: 10,
     user_id: 4,
     )
