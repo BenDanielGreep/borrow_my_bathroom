@@ -1,9 +1,25 @@
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between; margin-top:100px;">
   <div class="bathroom-show-container">
     <%= link_to "Back", bathrooms_path, class: "back" %>
     <div>
-      <h3 style="padding-bottom: 12px; padding-top: 12px"><strong><%= @bathroom.title %></strong></h3>
+      <h3 style="padding-top: 12px"><strong><%= @bathroom.title %></strong></h3>
+      <div id="rating">
+        <% total = 0.0 %>
+        <% average = 0.0 %>
+        <% @reviews.each do |review|%>
+          <% total += review.rating %>
+        <% end %>
+        <% average = total / @reviews.count %>
+        <%  if @reviews.count != 0 %>
+          <i class="fas fa-star" style="color: #FF7E67; padding-bottom: 12px;"></i>
+          <span style="font-weight: bold; font-size: 14px;"><%= average.round(1)  %></span>
+        <% else %>
+          <i class="fas fa-star" style="color: grey; padding-bottom: 12px;"></i>
+          <span style="font-weight: bold; font-size: 14px;">0</span>
+        <% end %>
+        <span style="color: grey; font-size: 14px;">(<%= @reviews.count %> reviews)</span>
+      </div>
       <div class="bathroom-show">
         <div class="image">
           <%= cl_image_tag @bathroom.photos.first.key, height: 400, width: 700, crop: :fill %>
@@ -12,26 +28,61 @@
           <h4>Visit <strong><%= @bathroom.user.name %>'s</strong> bathroom</h4>
           <hr>
           <p style="font-size: 14px; color: grey"><%= @bathroom.address %></p>
-          <p style="font-style: italic; text-align: justify;">"<%= @bathroom.description %>"</p>
+          <p style="font-style: italic; text-align: justify; font-size: 14px;">"<%= @bathroom.description %>"</p>
         </div>
         <div class="price_book">
           <p> <strong>£ <%= @bathroom.price %> per hour</strong></p>
         </div>
+        <div class="features">
+          <hr>
+          <h4>Features</h4>
+          <div style="margin-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap">
+            <div style=" width: 350px;">
+              <i class="fas fa-wifi"></i>
+              <span>Wi-Fi</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-bath"></i>
+              <span>Bath</span>
+            </div>
+           <div style=" width: 350px;">
+              <i class="fas fa-pump-soap"></i>
+              <span>Shampoo</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-soap"></i>
+              <span>Body wash</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-shower"></i>
+              <span>Hot water</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-sink"></i>
+              <span>Sink</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-toilet"></i>
+              <span>Toilet</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-air-freshener"></i>
+              <span>Air Freshener</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-align-justify"></i>
+              <span>Clean Towels</span>
+            </div>
+            <div style=" width: 350px;">
+              <i class="fas fa-parking"></i>
+              <span>Free on-street parking</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div>
-      <% @reviews.each do |review|%>
-        <div class="review-card">
-          <div>
-            <h3> <%= review.user.name %> </h3>
-            <p><%= review.rating %></p>
-          </div>
-          <p><%= review.comment %></p>
-        </div>
-      <% end %>
   </div>
-  </div>
-  <div class="container h1 i booking_form fixed-top" style="margin-top: 100px; height: 500px; width: 550px; margin-right: 24px; border-radius: 8px">
+  <div class="container h1 i booking_form sticky-top h-100" style="position: sticky; position: -webkit-sticky; top: 100px; height: 500px; width: 500px; margin-top: 24px; margin-right: 24px; border-radius: 8px; ">
     <h2 class="title" style="border-radius: 8px 8px 0px 0px;">Complete your booking details below:</h2>
       <div class= "p-4"><%= simple_form_for [@bathroom, @booking], html:{data: {price:@bathroom.price}} do |f| %>
         <%= f.input :start_time, html5: true %>
@@ -40,5 +91,23 @@
         <%= f.button :submit, class: "button-primary" %>
         <% end %>
       </div>
+  </div>
+</div>
+<div style=" margin-top: 48px; margin-left: 48px; margin-right: 48px;">
+    <hr>
+    <h4>Reviews</h4>
+    <div class="review-container">
+      <% @reviews.each do |review|%>
+        <div class="review-card">
+          <div>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <hr>
+            <h3> <%= review.user.name %> </h3>
+          </div>
+          <p>"<%= review.comment %>"</p>
+        </div>
+      <% end %>
   </div>
 </div>
