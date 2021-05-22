@@ -1,38 +1,113 @@
- <div class="bathroom-show-container">
+<div style="margin-top: 120px; margin-left: 100px;">
   <div>
-    <h3><%= "Bookings made on my toilets by other people" unless current_user.bathrooms.empty? %></h3>
-    <h1 style="margin-top:50px "></h1>
-    <% current_user.bathrooms.each do |bathroom| %>
-      <% bathroom.bookings.each do |booking| %>
-        <h4><%= booking.bathroom.title %></h4>
-        <% if !booking.confirmed %>
-          <%= link_to "Confirm this booking", booking_path(booking), method: 'PATCH' %>
-       <% else %>
-       <p>Booking confirmed</p>
-       <% end %>
-      <% end %>
-    <% end %>
-  </div>
-  <hr>
-  <div>
-    <h1 style="margin-top:100px ">My Bookings</h1>
-    <% @bookings.each do |booking| %>
-      <h4><%= booking.bathroom.title %></h4>
-      <p><%= booking.bathroom.user.name %></p>
-      <p>£<%= booking.booking_price %></p>
-      <p><%= booking.confirmed ? "Confirmed" : "Pending" %></p>
-      <%= link_to "Update", bookings_path(@booking) %>
-      <%= link_to "Delete", bookings_path(@booking) %>
+    <h3><%= "Peding bookings" unless current_user.bathrooms.empty? %></h3>
     <hr>
-    <% end %>
+      <% current_user.bathrooms.each do |bathroom| %>
+        <% bathroom.bookings.each do |booking| %>
+          <div class="card card-container d-flex flex-row border" style="width: 65%; margin-bottom: 24px; margin-top: 24px;">
+            <div class="left-card">
+              <div class="img-container">
+                <%= cl_image_tag booking.bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
+              </div>
+              <div class="price-container">
+                <div class="price-text"><em class="per-hour"> Total: </em><b>£ <%= booking.booking_price%></b></div>
+              </div>
+            </div>
+            <div class="right-card d-flex flex-column">
+              <div class="text-container">
+                <div class="title-text">
+                  <h4 class="card-title"><%= booking.bathroom.title %></h4>
+                </div>
+                <div class="content-text">
+                  <p class="card-text text-secondary" id="address"><%= booking.bathroom.address %></p>
+                  <p class="card-text text-secondary">"<%= booking.bathroom.description %>"</p>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="button-container d-flex">
+                  <% if !booking.confirmed %>
+                    <div class=""><%= link_to "Accept", booking_path(booking), method: 'PATCH', class: "btn btn-orange"%></div>
+                    <div class=""><%= link_to "Decline", booking_path(booking), method: 'PATCH', class: "btn btn-orange"%></div>
+                  <% else %>
+                    <div class=""><%= link_to "Confirmed", booking_path(booking), class: "btn btn-orange-confirmed"%></div>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
   </div>
-  <hr>
   <div>
-    <h1 style="margin-top:50px ">My Bathrooms</h1>
-    <% @bathrooms.each do |bathroom| %>
-      <h4><%=bathroom.title %></h4>
-      <p><%= bathroom.user.name %></p>
-    <% end %>
+    <h3 style="margin-top: 130px;"><%= "My Bookings" unless current_user.bookings.empty? %></h3>
+    <hr>
+        <% @bookings.each do |booking| %>
+          <div class="card card-container d-flex flex-row border" style="width: 60%; margin-bottom: 24px; margin-top: 24px;">
+            <div class="left-card">
+              <div class="img-container">
+                <%= cl_image_tag booking.bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
+              </div>
+              <div class="price-container">
+                <div class="price-text"><em class="per-hour"> Total: </em><b>£ <%= booking.booking_price%></b></div>
+              </div>
+            </div>
+            <div class="right-card d-flex flex-column">
+              <div class="text-container">
+                <div class="title-text">
+                  <h4 class="card-title"><%= booking.bathroom.title %></h4>
+                </div>
+                <div class="content-text">
+                  <p class="card-text text-secondary" id="address"><%= booking.bathroom.address %></p>
+                  <p class="card-text text-secondary">"<%= booking.bathroom.description %>"</p>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="button-container d-flex">
+                  <% if booking.confirmed %>
+                    <div class=""><%= link_to "Confirmed", booking_path(booking), class: "btn btn-orange-confirmed"%></div>
+                  <% else %>
+                    <div class=""><%= link_to "Declined", booking_path(booking), class: "btn btn-orange-confirmed"%></div>
+                  <% end %>
+                    <div class=""><%= link_to "Update", booking_path(booking), class: "btn btn-orange"%></div>
+                    <div class=""><%= link_to "Delete", booking_path(booking), class: "btn btn-orange"%></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
   </div>
-  <hr>
+    <div>
+    <h3 style="margin-top: 130px;"><%= "My Bathrooms" unless current_user.bathrooms.empty? %></h3>
+    <hr>
+        <% @bathrooms.each do |bathroom| %>
+          <div class="card card-container d-flex flex-row border" style="width: 60%; margin-bottom: 24px; margin-top: 24px;">
+            <div class="left-card">
+              <div class="img-container">
+                <%= cl_image_tag bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
+              </div>
+              <div class="price-container">
+                <div class="price-text"><em class="per-hour"> Total: </em><b>£ <%= bathroom.price%></b></div>
+              </div>
+            </div>
+            <div class="right-card d-flex flex-column">
+              <div class="text-container">
+                <div class="title-text">
+                  <h4 class="card-title"><%= bathroom.title %></h4>
+                </div>
+                <div class="content-text">
+                  <p class="card-text text-secondary" id="address"><%= bathroom.address %></p>
+                  <p class="card-text text-secondary">"<%= bathroom.description %>"</p>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="button-container d-flex">
+                    <div class=""><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-primary btn-orange"%></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+  </div>
 </div>
+
