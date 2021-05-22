@@ -31,8 +31,18 @@
       <div id="sign-up" style="display:flex">
         <% if current_user %>
           <p class="login">
-            Hello, <%= current_user.email %>
+            Hello ,  <%= current_user.name %>
           </p>
+          <div class="dropdown mr-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+              <i class="fas fa-align-justify"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'Dashboard', bookings_path, class: "dropdown-item" %>
+              <!-- <a class="dropdown-item" href="#">Action</a> -->
+            </div>
+          </div>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-airpnp" %>
         <% else %>
           <%= link_to 'Sign up', new_user_registration_path, class: "login" %>
           <%= link_to 'Login', new_user_session_path, class: "login" %>
