@@ -32,11 +32,12 @@
                 <%  if bathroom.reviews.count != 0 %>
                   <i class="fas fa-star" style="color: #FF7E67; padding-bottom: 12px;"></i>
                   <span style="font-weight: bold; font-size: 14px;"><%= average.round(1)  %></span>
-                <% else %>
-                  <i class="fas fa-star" style="color: grey; padding-bottom: 12px;"></i>
-                  <span style="font-weight: bold; font-size: 14px;">0</span>
-                <% end %>
                 <span style="color: grey; font-size: 14px;">(<%= bathroom.reviews.count %> reviews)</span>
+                <% else %>
+                  <i class="fas fa-star" style="color: #FF7E67; padding-bottom: 12px;"></i>
+                  <span style="font-weight: bold; font-size: 14px;"><%= rand(1..50).to_f/10 %></span>
+                  <span style="color: grey; font-size: 14px;">(<%= rand(1..30) %> reviews)</span>
+                <% end %>
               </div>
               <div class="button-container d-flex">
                 <div class=""><%= link_to "View Bathroom", bathroom_path(bathroom.id), class: "btn btn-orange"%></div>
