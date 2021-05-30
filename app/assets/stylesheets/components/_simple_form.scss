@@ -10,25 +10,39 @@
   font-size: 16px;
   }
   h2 {
-  color:white;
+  color:$airpnp-blue;
   // font-family: $logo-font;
-  font-size: 22px;
+  font-size: 30px;
+  font-weight: bold;
   margin: auto;
   text-align: center;
   }
+  small {
+    font-size: 16px;
+  }
+  .form-check {
+    font-size: 1rem;
+  }
+}
+
+.form-actions {
+   border-bottom: 1px solid $airpnp-blue;
 }
 
 .title {
-  background-color: $airpnp-blue;
-  padding: 12px;
+  background-color: #ffffff;
+  padding: 12px 12px 36px 12px;
+  border-bottom: 1px solid $airpnp-blue;
 }
+
 
 .button-primary {
   margin-top: 24px;
-  padding: 12px 24px 12px 24px;
+  margin-bottom: 48px;
+  padding: 10px 20px 10px 20px;
   border-radius: 24px;
   font-weight:bolder;
-  font-size: 16px;
+  font-size: 20px;
   justify-self: left;
   border: 1px solid $airpnp-orange;
   color: $airpnp-orange;
@@ -43,6 +57,32 @@
   &:hover{
     color: white;
     background-color: $airpnp-orange;
+    opacity: 0.9;
+    transition: 0.2s background-color ease;
+  }
+}
+
+.button-blue {
+  margin-top: 24px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 24px;
+  font-weight:bolder;
+  font-size: 16px;
+  text-decoration: none;
+  justify-self: left;
+  border: 1px solid $airpnp-blue;
+  color: $airpnp-blue;
+  background-color: #ffffff;
+  &:hover{
+    color: white;
+    background-color: $airpnp-blue;
+    opacity: 0.9;
+    transition: 0.2s background-color ease;
+    border: 1px solid $airpnp-blue;
+  }
+  &:hover{
+    color: white;
+    background-color: $airpnp-blue;
     opacity: 0.9;
     transition: 0.2s background-color ease;
   }
