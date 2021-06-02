@@ -11,11 +11,12 @@ class BathroomsController < ApplicationController
     else
       @bathrooms = Bathroom.all.where.not(latitude: nil, longitude: nil)
       @markers = @bathrooms.geocoded.map do |bathroom|
-      {
-        lat: bathroom.latitude,
-        lng: bathroom.longitude
-      }
-    end
+        {
+          lat: bathroom.latitude,
+          lng: bathroom.longitude,
+          info_window: render_to_string(partial: "/bathrooms/map_box", locals: { bathroom: bathroom })
+        }
+      end
     end
   end
 
