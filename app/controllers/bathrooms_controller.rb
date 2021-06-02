@@ -6,10 +6,16 @@ class BathroomsController < ApplicationController
       OR users.name ILIKE :query \
       "
       @bathrooms = Bathroom.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-      # @bathrooms = Bathroom.search_by_title(params[:query]) or 
+      # @bathrooms = Bathroom.search_by_title(params[:query]) or
 
     else
-      @bathrooms = Bathroom.all
+      @bathrooms = Bathroom.all.where.not(latitude: nil, longitude: nil)
+      @markers = @bathrooms.geocoded.map do |bathroom|
+      {
+        lat: bathroom.latitude,
+        lng: bathroom.longitude
+      }
+    end
     end
   end
 
