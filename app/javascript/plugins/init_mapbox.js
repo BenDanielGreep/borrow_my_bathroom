@@ -18,7 +18,7 @@ const addMarkersToMap = (map, markers) => {
 
        new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup) // add this
+      .setPopup(popup)
       .addTo(map);
   });
 };
@@ -33,11 +33,20 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
     const map = buildMap(mapElement);
+    map.on('load', function () {
+    map.resize();
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+});
   }
 };
+
+// const resizeMap = () => {
+//   map.on('load', function () {
+//     map.resize();
+// });
+// };
 
 export { initMapbox };
 
