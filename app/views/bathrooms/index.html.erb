@@ -1,8 +1,8 @@
-<div class="" style="margin-top: 100px;">
-  <!-- <h1>This is the Bathrooms index page</h1> -->
-  <div class="bathroom-cards d-flex flex-column justify-content-around align-items-center">
+<div class="parent-container" style="margin-top: 100px;">
+
+  <div class=" col-6 bathroom-cards d-flex flex-column justify-content-around align-items-center">
     <% @bathrooms.each do |bathroom| %>
-        <div class="card card-container d-flex flex-row m-3 border" style="width: 50%;">
+        <div class="card card-container d-flex flex-row m-3 border">
           <div class="left-card">
           <div class="img-container">
             <%= cl_image_tag bathroom.photos.first.key, height: 200, width: 300, crop: :fill %>
@@ -35,7 +35,7 @@
                 <span style="color: grey; font-size: 14px;">(<%= bathroom.reviews.count %> reviews)</span>
                 <% else %>
                   <i class="fas fa-star" style="color: #FF7E67; padding-bottom: 12px;"></i>
-                  <span style="font-weight: bold; font-size: 14px;"><%= rand(29..50).to_f/10 %></span>
+                  <span style="font-weight: bold; font-size: 14px;"><%= rand(39..50).to_f/10 %></span>
                   <span style="color: grey; font-size: 14px;">(<%= rand(1..30) %> reviews)</span>
                 <% end %>
               </div>
@@ -47,6 +47,12 @@
         </div>
     <% end %>
   </div>
+
+  <section class="map-box-container" id="map"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </section>
+
 </div>
 
 

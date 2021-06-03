@@ -1,0 +1,3 @@
+<h3><%= link_to bathroom.title, bathroom_path(bathroom.id)%></h3>
+<p><%= bathroom.address %></p>
+<%= cl_image_tag bathroom.photos.first.key, height: 110, width: 180, crop: :fill %>

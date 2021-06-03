@@ -1,0 +1,29 @@
+.map-box-container {
+  // height: 100% !important;
+  // width: 100% !important;
+}
+
+#map {
+  // align-self: flex-start;
+  // top: 0;
+  // position: sticky;
+  width: 80vw;
+  height: 90vh;
+  margin-right: 25px;
+  margin-top: 20px;
+  }
+
+h3 a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
