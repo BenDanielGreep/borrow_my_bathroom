@@ -1,12 +1,16 @@
-#map-box-container {
-  // position: relative;
+.map-box-container {
   // height: 100% !important;
   // width: 100% !important;
 }
 
 #map {
-    width: 80%;
-  height: 80vh;
+  // align-self: flex-start;
+  // top: 0;
+  // position: sticky;
+  width: 80vw;
+  height: 90vh;
+  margin-right: 25px;
+  margin-top: 20px;
   }
 
 .mapboxgl-popup {
